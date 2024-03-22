@@ -53,3 +53,25 @@ async function populateListUsingFetch() {
 }
 
 populateListUsingFetch();
+
+async function summonAnnaLena() {
+	// let img = document.createElement('img');
+	// img.src = 'files/annalena.png';
+
+	// document.body.append(img);
+
+	let annalena = await fetch('files/annalena.png');
+
+	let blob = await annalena.blob();
+
+	let url = URL.createObjectURL(blob);
+
+	let img = document.createElement('img');
+	img.src = url;
+
+	document.body.append(img);
+}
+
+let annaLenaButton = document.getElementById('annalena-button');
+
+annaLenaButton.addEventListener('click', summonAnnaLena);
